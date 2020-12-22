@@ -1,0 +1,45 @@
+.header{
+    /* 把header固定在上面 */
+    position: sticky;
+    top: 0;
+    display: flex;
+    background-color: white;
+    justify-content: space-evenly;
+    border-bottom: 0.1px solid lightgray;
+    padding: 10px 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.header_left {
+    display: flex;
+}
+
+.header_left > img {
+    /* 可以增加或減少物件的寬或高(維持原比例)，直到放的進去所定義的外框，通常需搭配高度 */
+    object-fit: contain;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.header_search {
+    padding: 10px;
+    display: flex;
+    /*  icon有點歪掉，只好用這個，垂直置中 */
+    align-items: center;
+    border-radius: 5px;
+    height: 22px;
+    color: gray;
+    background-color: #EEF3F8;
+}
+
+.header_search > input {
+    /* 把預設的input element樣式移除 */
+    outline: none;
+    border: none;
+    background: none;
+}
+
+.header_right {
+    display: flex;
+}
