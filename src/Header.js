@@ -7,8 +7,18 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import CommentIcon from '@material-ui/icons/Comment';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import {useDispatch, useSelector} from 'react-redux';
+import { logout, selectUser } from './features/userSlice';
+import { auth } from './firebase';
 
 function Header(props) {
+    const user = useSelector(selectUser);
+    const dispatch = useDispatch();
+    const logoutOfApp = () => {
+        dispatch(logout())
+        auth.signOut();
+    };
+
     return (
         <div className="header">
             {/* Icon & Search */}
@@ -18,7 +28,7 @@ function Header(props) {
                 
                 <div className="header_search">
                     <SearchIcon/>
-                    <input type="text"/>
+                    <input placeholder="搜尋" type="text"/>
                 </div>
             </div>
 
@@ -30,10 +40,13 @@ function Header(props) {
                 <HeaderOption Icon={BusinessCenterIcon} title="職缺" />
                 <HeaderOption Icon={CommentIcon} title="訊息" />
                 <HeaderOption Icon={NotificationsIcon} title="通知" />
-                <HeaderOption avatar="https://inews.gtimg.com/newsapp_bt/0/9664898940/641" title="我"/>
+                <HeaderOption avatar={true} onClick={logoutOfApp} title="我"/>
             </div>
         </div>
     );
 }
 
 export default Header;
+
+// 頭像
+// https://inews.gtimg.com/newsapp_bt/0/9664898940/641
