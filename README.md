@@ -7,7 +7,7 @@ Linkedin-clone for practice.
 
 網址:https://allen0524.github.io/linkedin-clone-Reactjs/
 
-##使用
+## 使用
 
 * React.js
 * Redux
